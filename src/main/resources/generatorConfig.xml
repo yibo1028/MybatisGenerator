@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<!-- <classPathEntry
+		location="\.\WebContent\WEB-INF\lib\mysql-connector-java-5.1.21.jar" />
+ -->
+ <!-- 配置文件路径 -->
+ <!-- 属性文件的全限定名称。当指定了resource属性，将会从classpath下面搜索属性文件。 当指定为 com/myproject/generatorConfig.properties 时，他必须存在 com.myproject 包下面。 -->
+    <properties resource="generatorConfig.properties"/>
+    
+	<context id="MysqlTables" targetRuntime="MyBatis3">
+		<commentGenerator>
+			<property name="suppressAllComments" value="false"/><!-- 是否取消注释 (默认false)-->  
+			<property name="addRemarkComments" value="true"/><!-- 是否使用数据库字段注释(需要suppressAllComments为false)--> 
+            <property name="suppressDate" value="true" /> <!-- 是否生成注释时间戳: false时生成注释时间戳，true时关闭-->
+		</commentGenerator>
+		<!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
+		<jdbcConnection driverClass="${jdbc.driver}" connectionURL="${jdbc.url}" 
+		    userId="${jdbc.username}"
+        	password="${jdbc.password}">
+		</jdbcConnection>
+		<!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer，为 true时把JDBC DECIMAL 和 
+			NUMERIC 类型解析为java.math.BigDecimal 
+			forceBigDecimals：默认是false 是否强制使用BigDecimal来表示所有的十进制和数值字段。 
+			•如果规模更大•然后零,或长度大于18,那么不只。将使用BigDecimal类型 
+			•如果其长度为10到18岁,则Java类型解析器将java.lang.Long来代替了。 
+			•如果长度为5到9,然后Java类型解析器将替换一个Java.lang.integer。 
+			•如果其长度小于5,则Java类型解析器将java.lang.Short替代。 
+			-->
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<javaModelGenerator targetPackage="${package.model}"
+			targetProject="${target.project.java}">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="false" />
+		</javaModelGenerator>
+		
+		<!-- 生成的xml存放路径 -->	
+		<sqlMapGenerator targetPackage="${package.sqlMap}"
+			targetProject="${target.project.sqlMap}">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+		<javaClientGenerator type="XMLMAPPER" targetPackage="${package.dao}" 
+		    targetProject="${target.project.java}">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+		
+		<table tableName="%" enableCountByExample="false"
+			enableUpdateByExample="false" enableDeleteByExample="false"
+			enableSelectByExample="false" selectByExampleQueryId="false" >
+			<property name="useActualColumnNames" value="false" />
+		<!--useActualColumnNames设置为false，则如何数据库表的字段中有比如DATE_FIELD生成为dateField， TEAID：teaid  
+            true，则表示按表中字段原样输出  
+        -->
+		<!-- <table tableName="%" enableCountByExample="false"
+			enableUpdateByExample="false" enableDeleteByExample="false"
+			enableSelectByExample="false" selectByExampleQueryId="false" >
+			<property name="useActualColumnNames" value="false" /> -->
+
+			<!-- <generatedKey column="id" sqlStatement="Mysql" identity="true"/> <property name="useActualColumnNames" 
+				value="true"/> <generatedKey column="ID" sqlStatement="DB2" identity="true" 
+				/> <columnOverride column="DATE_FIELD" property="startDate" /> <ignoreColumn 
+				column="FRED" /> <columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR" 
+				/> -->
+		</table>
+	</context>
+</generatorConfiguration>
+
+<!-- 
+参考：
+http://www.mybatis.org/generator/configreference/xmlconfig.html
+
+http://mbg.cndocs.tk/configreference/xmlconfig.html -->
