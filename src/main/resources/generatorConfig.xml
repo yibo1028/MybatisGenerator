@@ -58,6 +58,8 @@
 		<!--useActualColumnNames设置为false，则如何数据库表的字段中有比如DATE_FIELD生成为dateField， TEAID：teaid  
             true，则表示按表中字段原样输出  
         -->
+        <!-- <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+         如果主键是自增则增加该属性 -->
 		<!-- <table tableName="%" enableCountByExample="false"
 			enableUpdateByExample="false" enableDeleteByExample="false"
 			enableSelectByExample="false" selectByExampleQueryId="false" >
