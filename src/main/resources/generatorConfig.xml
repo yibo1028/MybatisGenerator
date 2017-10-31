@@ -13,8 +13,8 @@
     
 	<context id="MysqlTables" targetRuntime="MyBatis3">
 		<commentGenerator>
-			<property name="suppressAllComments" value="false"/><!-- 是否取消注释 (默认false)-->  
-			<property name="addRemarkComments" value="true"/><!-- 是否使用数据库字段注释(需要suppressAllComments为false)--> 
+			<property name="suppressAllComments" value="true"/><!-- 是否取消注释 (默认false)-->
+			<property name="addRemarkComments" value="true"/><!-- 是否使用数据库字段注释(需要suppressAllComments为false)-->
             <property name="suppressDate" value="true" /> <!-- 是否生成注释时间戳: false时生成注释时间戳，true时关闭-->
 		</commentGenerator>
 		<!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
@@ -51,7 +51,7 @@
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
 		
-		<table tableName="%" enableCountByExample="false"
+		<table tableName="PUNISH_LOG_REPORT" enableCountByExample="false"
 			enableUpdateByExample="false" enableDeleteByExample="false"
 			enableSelectByExample="false" selectByExampleQueryId="false" >
 			<property name="useActualColumnNames" value="false" />
@@ -59,7 +59,7 @@
             true，则表示按表中字段原样输出  
         -->
         <!-- <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-         如果主键是自增则增加该属性 -->
+         	如果主键是自增则增加该属性,column="表的主键字段" -->
 		<!-- <table tableName="%" enableCountByExample="false"
 			enableUpdateByExample="false" enableDeleteByExample="false"
 			enableSelectByExample="false" selectByExampleQueryId="false" >
