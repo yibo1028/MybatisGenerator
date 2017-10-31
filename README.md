@@ -1,11 +1,11 @@
 # MybatisGenerator
 Mybatis代码生成说明：
 
-1、运行com\bobo\common\main包下面的Generator.java的main方法（根据generatorConfig.xml配置规则生成）
+1、运行com\yibo\study\mybatis\common\main包下面的Generator.java的main方法（根据generatorConfig.xml配置规则生成）
 
 2、
-model生成在\com\bobo\model下，
-dao生成在\com\bobo\dao（基本的增删改查方法），
+model生成在\com\yibo\study\mybatis\model下，
+dao生成在\com\yibo\study\mybatis\dao（基本的增删改查方法），
 sql mapper xml文件生成在\generator\mysql目录下（基本的增删改查方法）
 (数据库信息和生成的代码路径可以在generatorConfig.properties中指定，会自动生成对应的包)
 
