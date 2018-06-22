@@ -13,13 +13,13 @@
 
 	<context id="MysqlTables" targetRuntime="MyBatis3">
 		<!--EqualsHash,生成model 的 equalsHash方法-->
-		<plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>
+		<!--<plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>-->
 		<!--toString,生成model 的 toString方法-->
 		<plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
 		<!--分页插件,生成分页查询example-->
 		<plugin type="org.mybatis.generator.plugins.RowBoundsPlugin"/>
 		<!--流式插件,生成fluent with方法-->
-		<plugin type="org.mybatis.generator.plugins.FluentBuilderMethodsPlugin"/>
+		<!--<plugin type="org.mybatis.generator.plugins.FluentBuilderMethodsPlugin"/>-->
 		<!--like插件，增加string 类型字段的筛选条件like-->
 		<plugin type="org.mybatis.generator.plugins.CaseInsensitiveLikePlugin"/>
 		<!--序列化插件-->
@@ -64,6 +64,9 @@
 			<property name="enableSubPackages" value="true" />
 		</sqlMapGenerator>
 
+		<!-- type="ANNOTATEDMAPPER",生成基于注解的Mapper接口
+                type="MIXEDMAPPER",生成最小的基于注解的Mapper接口
+                type="XMLMAPPER",生成SQLMap XML文件和独立的Mapper接口 -->
 		<javaClientGenerator type="XMLMAPPER" targetPackage="${package.dao}" 
 		    targetProject="${target.project.java}">
 			<property name="enableSubPackages" value="true" />

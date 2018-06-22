@@ -39,21 +39,24 @@
         </javaTypeResolver>
 
         <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-        <!-- gem entity -->
+        <!-- gen entity -->
         <javaModelGenerator targetPackage="${package.model}"
                             targetProject="${target.project.java}">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="false"/>
         </javaModelGenerator>
         <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-        <!-- gem sq1 map -->
+        <!-- gen sq1 map -->
         <sqlMapGenerator targetPackage="${package.sqlMap}"
                          targetProject="${target.project.sqlMap}">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
         <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-        <!-- gem  mapper -->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="${package.dao}"
+        <!-- gen  mapper -->
+        <!-- type="ANNOTATEDMAPPER",生成基于注解的Mapper接口
+                type="MIXEDMAPPER",生成最小的基于注解的Mapper接口
+                type="XMLMAPPER",生成SQLMap XML文件和独立的Mapper接口 -->
+        <javaClientGenerator type="ANNOTATEDMAPPER" targetPackage="${package.dao}"
                              targetProject="${target.project.java}">
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
