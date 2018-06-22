@@ -5,8 +5,8 @@ Mybatis代码生成说明：<br>
 1、项目根目录执行mvn install命令即可生成（根据generatorConfig-plugin.xml配置规则生成）<br>
 
 2、model生成在\com\yibo\study\mybatis\plugin\model下，<br>
-dao生成在\com\yibo\study\mybatis\plugin\dao（基本的增删改查方法），<br>
-sql mapper xml文件生成在\generator\mysql\plugin目录下（基本的增删改查方法），<br>
+dao生成在\com\yibo\study\mybatis\plugin\dao，<br>
+sql mapper xml文件生成在\generator\mysql\plugin目录下，<br>
 (数据库信息和生成的代码路径可以在generatorConfig-plugin.properties中指定，会自动生成对应的包)。<br>
     
 二、main方法生成：<br>

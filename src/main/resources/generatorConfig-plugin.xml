@@ -14,7 +14,8 @@
         <plugin type="org.mybatis.generator.plugins.FluentBuilderMethodsPlugin"/>
         <!--like插件，增加string 类型字段的筛选条件like-->
         <plugin type="org.mybatis.generator.plugins.CaseInsensitiveLikePlugin"/>
-
+        <!--序列化插件-->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
         <commentGenerator>
             <!--When the property is true, no timestamp will be added to the generated comments.-->
             <property name="suppressDate" value="false"/>
