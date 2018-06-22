@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+    <properties resource="generatorConfig-plugin.properties"/>
+    <context id="MysqlTables" targetRuntime="MyBatis3">
+        <!--EqualsHash,生成model 的 equalsHash方法-->
+        <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>
+        <!--toString,生成model 的 toString方法-->
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+        <!--分页插件,生成分页查询example-->
+        <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin"/>
+        <!--流式插件,生成fluent with方法-->
+        <plugin type="org.mybatis.generator.plugins.FluentBuilderMethodsPlugin"/>
+        <!--like插件，增加string 类型字段的筛选条件like-->
+        <plugin type="org.mybatis.generator.plugins.CaseInsensitiveLikePlugin"/>
+
+        <commentGenerator>
+            <!--When the property is true, no timestamp will be added to the generated comments.-->
+            <property name="suppressDate" value="false"/>
+            <!--Warning: if you set this value to true, then all code merging will be disabled.-->
+            <property name="suppressAllComments" value="false"/>
+            <!--Warning: If suppressAllComments option is true, this option will be ignored.-->
+            <property name="addRemarkComments" value="true"/>
+            <!--Warning: If the suppressDate option is true, this option will be ignored.-->
+            <property name="dateFormat" value="yyyy-MM-dd HH:mm:ss"/>
+        </commentGenerator>
+        <!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
+        <jdbcConnection driverClass="${jdbc.driver}"
+                        connectionURL="${jdbc.url}"
+                        userId="${jdbc.username}"
+                        password="${jdbc.password}">
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <!--When the property is true, the Java type resolver will always use java.math.BigDecimal if the database column is of type DECIMAL or NUMERIC.-->
+            <property name="forceBigDecimals" value="true"/>
+        </javaTypeResolver>
+
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- gem entity -->
+        <javaModelGenerator targetPackage="${package.model}"
+                            targetProject="${target.project.java}">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="false"/>
+        </javaModelGenerator>
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- gem sq1 map -->
+        <sqlMapGenerator targetPackage="${package.sqlMap}"
+                         targetProject="${target.project.sqlMap}">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- gem  mapper -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="${package.dao}"
+                             targetProject="${target.project.java}">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+        <table tableName="user_info" domainObjectName="UserInfo">
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+    </context>
+
+</generatorConfiguration>

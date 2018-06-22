@@ -15,7 +15,9 @@
 		<commentGenerator>
 			<property name="suppressAllComments" value="false"/><!-- 是否取消注释 (默认false)-->
 			<property name="addRemarkComments" value="true"/><!-- 是否使用数据库字段注释(需要suppressAllComments为false)-->
-            <property name="suppressDate" value="true" /> <!-- 是否生成注释时间戳: false时生成注释时间戳，true时关闭-->
+            <property name="suppressDate" value="false" /> <!-- 是否生成注释时间戳: false时生成注释时间戳，true时关闭-->
+			<!--Warning: If the suppressDate option is true, this option will be ignored.-->
+			<property name="dateFormat" value="yyyy-MM-dd HH:mm:ss"/>
 		</commentGenerator>
 		<!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
 		<jdbcConnection driverClass="${jdbc.driver}" connectionURL="${jdbc.url}" 
@@ -51,10 +53,11 @@
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
 		
-		<table tableName="PUNISH_LOG_REPORT" enableCountByExample="false"
+		<table tableName="user_info" enableCountByExample="false"
 			enableUpdateByExample="false" enableDeleteByExample="false"
 			enableSelectByExample="false" selectByExampleQueryId="false" >
 			<property name="useActualColumnNames" value="false" />
+			<generatedKey column="id" sqlStatement="Mysql" identity="true"/>
 		<!--useActualColumnNames设置为false，则如何数据库表的字段中有比如DATE_FIELD生成为dateField， TEAID：teaid  
             true，则表示按表中字段原样输出  
         -->
